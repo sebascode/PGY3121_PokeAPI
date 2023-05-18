@@ -18,35 +18,35 @@ namespace PokeAPP.API.Controllers
 
         // GET: api/Ataque
         [HttpGet]
-        public IList<Ataque> Get()
+        public IList<Ataque> GetAtaques()
         {
             return servicio.Listar();
         }
 
         // GET: api/Ataque/5
-        [HttpGet("{id}", Name = "Get")]
-        public Ataque Get(int id)
+        [HttpGet("{id}", Name = "GetAtaque")]
+        public Ataque GetAtaque(int id)
         {
             return servicio.Read(id);
         }
 
         // POST: api/Ataque
         [HttpPost]
-        public void Post([FromBody] Ataque objeto)
+        public void PostAtaque([FromBody] Ataque objeto)
         {
             servicio.Create(objeto);
         }
 
         // PUT: api/Ataque/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Ataque value)
+        public void PutAtaque(int id, [FromBody] Ataque value)
         {
             servicio.Update(id, value);
         }
 
         // DELETE: api/Ataque/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteAtaque(int id)
         {
             servicio.Delete(id);
         }

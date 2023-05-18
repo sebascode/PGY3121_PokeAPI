@@ -6,7 +6,10 @@ namespace PokeAPP.API.Models
         public int id_pokemon { get; set; }
         public string nombre { get; set; }
         public float estatura { get; set; }
+        public float estaturaM2 => this.estatura / 100;
         public float peso { get; set; }
+        public float pesoKg => this.peso / 1000;
+          
         public bool isShiny { get; set; }
 
         public Tipo tipo { get; set; }
