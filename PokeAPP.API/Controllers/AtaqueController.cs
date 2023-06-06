@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PokeAPP.API.DBContext;
 using PokeAPP.API.Models;
 using PokeAPP.API.Service;
 using PokeAPP.API.Service.Implementacion;
@@ -14,7 +15,13 @@ namespace PokeAPP.API.Controllers
     [ApiController]
     public class AtaqueController : ControllerBase
     {
-        IAtaque servicio = new AtaqueService();
+        static IAtaque servicio;
+
+        public AtaqueController(IConfiguration configuration)
+        {
+            string conn = configuration.GetConnectionString("oci");
+            servicio = new AtaqueService(conn);
+        }
 
         // GET: api/Ataque
         [HttpGet]
@@ -41,7 +48,15 @@ namespace PokeAPP.API.Controllers
         [HttpPut("{id}")]
         public void PutAtaque(int id, [FromBody] Ataque value)
         {
-            servicio.Update(id, value);
+            ModelState.Remove("tipo");
+            Console.WriteLine("Comenzando proceso");
+            if (ModelState.IsValid)
+            {
+                Console.WriteLine("Modelo es válido");
+                servicio.Update(id, value);
+            }
+            else
+                Console.WriteLine("No es válido");
         }
 
         // DELETE: api/Ataque/5

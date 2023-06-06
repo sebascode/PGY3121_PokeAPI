@@ -9,6 +9,7 @@ namespace PokeAPP.API.Models
         public float estaturaM2 => this.estatura / 100;
         public float peso { get; set; }
         public float pesoKg => this.peso / 1000;
+        public string urlImage { get; set; }
           
         public bool isShiny { get; set; }
 
@@ -26,12 +27,14 @@ namespace PokeAPP.API.Models
             this.estatura = new float();
             this.peso = new float();
             this.isShiny = new bool();
+            this.urlImage = string.Empty;
 
             this.tipo = new Tipo();
             this.tipo2 = new Tipo();
 
             this.sexo = Sexualida.SinIndicar;
+
+            this.ataques = new List<Ataque>();
         }
 	}
 }
-

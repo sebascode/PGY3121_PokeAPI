@@ -15,7 +15,7 @@ namespace PokeAPP.API.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        ICrud<Pokemon> service = new PokemonService();
+        static ICrud<Pokemon> service = new PokemonService();
 
         // GET: api/Pokemon
         [HttpGet]

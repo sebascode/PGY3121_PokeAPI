@@ -8,15 +8,5 @@
         public int PP { get; set; }
         public int precision { get; set; }
         public int damage { get; set; }
-
-        public Ataque()
-        {
-            this.id_ataque = new int();
-            this.Nombre = string.Empty;
-            this.tipo = new Tipo();
-            this.PP = new int();
-            this.precision = new int();
-            this.damage = new int();
-        }
     }
 }

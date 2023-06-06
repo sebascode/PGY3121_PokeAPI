@@ -8,18 +8,15 @@ namespace PokeAPP.API.Service.Implementacion
 
 		public PokemonService()
 		{
-            if(lista.Count == 0)
+            lista.Add(new Pokemon
             {
-                lista.Add(new Pokemon
-                {
-                    id_pokemon = 1,
-                    nombre = "Bulbasaur",
-                    peso = 6900,
-                    estatura = 70,
-                    sexo = Sexualida.Macho,
-                    isShiny = false
-                });
-            }
+                id_pokemon = 1,
+                nombre = "Bulbasaur",
+                peso = 6900,
+                estatura = 70,
+                sexo = Sexualida.Macho,
+                isShiny = false
+            });
 		}
 
         public void Create(Pokemon obj)
